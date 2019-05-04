@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+    <nav th:replace="layout :: header"></nav>
+    <br/><br/>
+    <div class="container " >
+        <h3>Modify Customer</h3>
+
+        <div class=" main-content form-group">
+         <form action="#" th:action="@{/customer/update}" th:object="${customer}" name ="frm" method="POST" >
+
+             <input type="hidden" th:field="*{id}"/>
+
+             <div class="form-group">
+                 <label for="Name">Name:</label>
+                 <input type="text" class="form-control" th:field="*{name}" placeholder="Enter name">
+             </div>
+             <div class="form-group">
+                 <label for="email">Email:</label>
+                 <input type="email" id ="email" class="form-control" th:field="*{email}" onsubmit="javascript:return validate('email_form','email')"
+                        placeholder="Enter email">
+             </div>
+             <div class="form-group">
+                 <label for="Phone">Phone:</label>
+                 <input type="text" class="form-control" th:field="*{phone}" placeholder="Enter phone">
+             </div>
+             <button type="submit" class="btn btn-primary" onclick="return val();">Modify</button>
+             <br/></br>
+             <p>
+                 <a th:href="@{/}" class="btn btn-primary text-left">Back to customer list</a>
+             </p>
+<!--             <div>-->
+<!--                    <label>Name</label>-->
+<!--                    <input type="text" th:field="*{name}"/>-->
+<!--             </div>-->
+<!--             <div>-->
+<!--                    <label>Email</label>-->
+<!--                    <input type="email" th:field="*{email}"/>-->
+<!--             </div>-->
+<!--             <div>-->
+<!--                    <label>Phone</label>-->
+<!--                    <input type="text" th:field="*{phone}"/>-->
+<!--             </div>-->
+<!--                     <input type="submit" value="Modify"></input>-->
+        </form>
+        </div>
+        <footer th:replace="layout :: footer"></footer>
+    </div>
+
+</body>
+
+</html>

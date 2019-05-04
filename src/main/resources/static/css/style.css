@@ -1,0 +1,64 @@
+.main-content {
+    min-height: 500px;
+    max-width: 700px;
+    margin-top: 70px;
+}
+h1 {
+    color:#0000FF;
+}
+
+h2 {
+    color:#FF0000;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 5px;
+
+}
+html,
+body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+#container {
+    min-height:100%;
+    position:relative;
+}
+#header {
+    background:#ff0;
+    padding:10px;
+}
+#body {
+    padding:10px;
+    padding-bottom:60px;   /* Height of the footer */
+}
+#footer {
+    background: #222;
+    border-top: 5px solid #333;
+    color: #ccc;
+    font-weight: bold;
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+#strong{
+    background: #222;
+    border-top: 5px solid #333;
+    color: #ccc;
+    font-weight: bold;
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+

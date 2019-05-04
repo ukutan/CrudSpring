@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>List Danh Sach</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+          crossorigin="anonymous">
+
+</head>
+
+<body>
+<nav th:replace="layout :: header"></nav>
+<br/><br/>
+
+<div class="container">
+    <div class = "row">
+        <div class="col-sm-6 right-button">
+            <form class="form-inline " action="#"
+                  th:action="@{/contact/search}" method="GET">
+                <div class="form-group">
+                    <input type="text" class="form-control " name="term"
+                           placeholder="search by name..." />
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+
+        <div class="col-sm-6 left-button bull right">
+            <a href="/addlist" class="btn btn-primary "><i class="fas fa-plus"></i>Add List</a>
+        </div>
+    </div>
+    <br/><br/>
+
+       <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+
+
+        </tr>
+        <tr th:each="contact: ${contacts}">
+            <td th:text="${contact.getId()}"></td>
+            <td th:text="${contact.getName()}"></td>
+            <td th:text="${contact.getEmail()}"></td>
+            <td th:text="${contact.getPhone()}"></td>
+            <td>
+                <a th:href="@{/{id}/view(id=${contact.getId()})}" class="btn btn-primary"><i class="fas fa-eye"></i>view</a>
+                <a th:href="@{/{id}/edit(id=${contact.getId()})}" class="btn btn-warning"><i class="fas fa-edit"></i>edit</a>
+            <!--<td><a th:href="@{/{id}/delete(id=${contact.getId()})}">delete</a></td>-->
+                <a th:href="@{/{id}/delete(id=${contact.getId()})}" onclick ="if(!(confirm('ban co chac chan muon xoa'))) return false"class="btn btn-dark">
+                <i class="fas fa-trash-alt"></i>delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<footer th:replace="layout :: footer"></footer>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="layout :: head"></head>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="layout :: header"></nav>
+<br/><br/>
+<div class="container">
+<h3>View Customer</h3>
+<div id="detail">
+    <div class="cusdetail">
+        <label>Name:</label>
+        <label th:text="${customer.getName()}"></label>
+    </div>
+    <div class="cusdetail">
+        <label>Email:</label>
+        <label th:text="${customer.getEmail()}"></label>
+    </div>
+    <div class="cusdetail">
+        <label>Phone:</label>
+        <label th:text="${customer.getPhone()}"></label>
+    </div>
+</div>
+    <p>
+        <a th:href="@{/}" class="btn btn-primary text-left">Back to customer list</a>
+    </p>
+</div>
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>
